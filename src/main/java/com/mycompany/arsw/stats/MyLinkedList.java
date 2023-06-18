@@ -15,7 +15,7 @@ import java.util.ListIterator;
  * @param <T>
  */
 class MyLinkedList<T> implements List<T>{
-    
+    private int size = 0;
     private Node<T> firstNode;
     private Node<T> lastNode = null;
         
@@ -39,8 +39,8 @@ class MyLinkedList<T> implements List<T>{
     }
 
     @Override
-    public Iterator<T> iterator() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public Iterator<T> iterator() { 
+        return new MyLinkedListIterator(firstNode);
     }
 
     @Override
@@ -66,8 +66,9 @@ class MyLinkedList<T> implements List<T>{
                 firstNode = firstNode.getNext();
             }
             node.setNext(node);
+            
         }
-               
+        size++;   
         return true;
     }
 
@@ -108,7 +109,15 @@ class MyLinkedList<T> implements List<T>{
 
     @Override
     public T get(int index) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        if (index < 0 || index >= size){
+            throw new IndexOutOfBoundsException("Index out of bounds: " + index);
+        }
+        Node<T> iterador = firstNode;
+        for (int i = 0; i < index; i++){
+            iterador = iterador.getNext();
+        }
+        
+        return iterador.getValue();
     }
 
     @Override

@@ -25,8 +25,13 @@ class Node <T>{
         data=e;
     }
     
-    
     public void setNext(Node<T> n){
         this.next = n;
     }
+    
+    public T getValue(){
+        return data;
+    }
+    
+    
 }
