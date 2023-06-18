@@ -21,7 +21,7 @@ class Node <T>{
         return next;
     }
     
-    public void set (T e){
+    public void set(T e){
         data=e;
     }
     

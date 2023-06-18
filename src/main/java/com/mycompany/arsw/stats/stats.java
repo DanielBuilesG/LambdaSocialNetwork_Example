@@ -20,6 +20,7 @@ public class stats {
         numbers.add(15.0);
         numbers.add(12.0);
         
+        
         System.out.println("avg: " + avg(numbers));
         System.out.println("devstd: " + devstd(numbers));
         

@@ -60,7 +60,14 @@ class MyLinkedList<T> implements List<T>{
         
         if (firstNode == null){
             firstNode = node;
+        }else{
+            
+            while (firstNode.getNext() != null){
+                firstNode = firstNode.getNext();
+            }
+            node.setNext(node);
         }
+               
         return true;
     }
 
